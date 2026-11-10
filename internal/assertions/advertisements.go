@@ -8,7 +8,6 @@ import (
 )
 
 func ContainsAdvertisementByTitle(t *testing.T, items []models.Advertisement, title string) {
-
 	t.Helper()
 
 	found := false

@@ -7,13 +7,6 @@ import (
 	"testing"
 )
 
-//func HttpGetMyAdvertisements(t *testing.T, token string, limit int) *http.Response {
-//	return apiRunner.GetRunner().Auth(token).Create().
-//		Get(path.MyAdvertisementsPath).
-//		Query("limit", strconv.Itoa(limit)).
-//		Expect(t).End().Response
-//}
-
 func HttpGetAdvertisements(t *testing.T, token, textForSearch string) *http.Response {
 	return apiRunner.GetRunner().Auth(token).Create().
 		Get(path.AdvertisementsPath).
