@@ -41,6 +41,10 @@ func (s *TestSuite) SetupSuite() {
 	s.loginData = auth.Login(s.T(), os.Getenv("TEST_LOGIN"), os.Getenv("TEST_PASSWORD"))
 }
 
+func (s *TestSuite) TearDownSuite() {
+	base.TearDownSuite()
+}
+
 func (s *TestSuite) TestSearchByTitle() {
 	list := advertisements.GetAdvertisementsList(s.T(), s.loginData.Token, searchMiddle)
 	s.Run("В ответе есть хотя бы одно объявление", func() {
