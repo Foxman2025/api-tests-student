@@ -9,7 +9,8 @@
 
 ## Запуск тестов
 
-1. Установите любое IDE для разработки: [Jetbrains GoLand](https://www.jetbrains.com/ru-ru/go/) (Платное или по студенческой лицензии), [VS Code](https://code.visualstudio.com/) (бесплатное).
+1. Установите любое IDE для разработки: [Jetbrains GoLand](https://www.jetbrains.com/ru-ru/go/) (Платное или по
+   студенческой лицензии), [VS Code](https://code.visualstudio.com/) (бесплатное).
 2. Установите [Git](https://git-scm.com/install/) на компьютер
 3. [Установите](https://go.dev/doc/install) Go версии 1.25.1
 4. [Настройте](https://docs.github.com/ru/authentication/connecting-to-github-with-ssh) доступ к своему Github-аккаунту
@@ -21,18 +22,20 @@
    go mod tidy
 ```
 
-7. В файле `.env.override` (создайте его в корне, если нет) выставьте правильные значения для переменных окружения:
+7. Создайте файл `.env.override` в корне проекта и укажите данные двух разных аккаунтов TestBoard.
 
-```
-TEST_LOGIN=your_login
-TEST_PASSWORD=your_password
+```dotenv
+   TEST_LOGIN=owner_email
+   TEST_PASSWORD=owner_password
+   FAVORITES_TEST_LOGIN=buyer_email
+   FAVORITES_TEST_PASSWORD=buyer_password
 ```
 
-8. Для запуска всех тестов достаточно выполнить команду в корне проекта:
+Первый аккаунт владеет тестовыми объявлениями. Второй используется для проверок избранного. Перед запуском у второго
+аккаунта должно быть хотя бы одно свободное место в избранном.
 
-```bash
-  go test -v ./...
-```
+8. В аккаунте `TEST_LOGIN` опубликуйте объявление с точным названием `MyAdvertisment1Uniq` и хотя бы одной фотографией.
+   Оно нужно шаблонным тестам поиска и списка собственных объявлений.
 
 9. Отдельный пакет с тестами можно запустить командой:
 

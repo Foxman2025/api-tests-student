@@ -46,7 +46,7 @@ func (s *TestSuite) TearDownSuite() {
 }
 
 func (s *TestSuite) TestSearchByTitle() {
-	list := advertisements.GetAdvertisementsList(s.T(), s.loginData.Token, searchMiddle)
+	list := advertisements.GetAdvertisementsList(s.T(), s.loginData.Token, searchMiddle, 0, "")
 	s.Run("В ответе есть хотя бы одно объявление", func() {
 		require.NotEmpty(s.T(), list.Items)
 	})
@@ -70,7 +70,7 @@ func (s *TestSuite) TestSearchByTitle_Substring() {
 
 	for _, tc := range cases {
 		s.Run(tc.name, func() {
-			list := advertisements.GetAdvertisementsList(s.T(), s.loginData.Token, tc.search)
+			list := advertisements.GetAdvertisementsList(s.T(), s.loginData.Token, tc.search, 0, "")
 
 			assertions.ContainsAdvertisementByTitle(s.T(), list.Items, existingAdTitle)
 		})
