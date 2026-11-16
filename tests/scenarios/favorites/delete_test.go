@@ -47,7 +47,6 @@ func (s *TestSuite) TestDeleteFavorite() {
 func (s *TestSuite) TestDeletedAdvertisementDisappearsFromFavorites() {
 	s.prepareTestAdvertisement()
 	advertisementID := s.advertisementID
-
 	base.Precondition("Добавляем чужое объявление в избранное")
 	s.addAdvertisementToFavorites()
 	beforeDeletion := s.getFavoritesBody()

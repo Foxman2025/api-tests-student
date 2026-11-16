@@ -75,7 +75,7 @@ func GetAdvertisementPhotos(t *testing.T, token string, expectedStatusCode int, 
 	return string(respArray)
 }
 
-// DeleteAdvertisementForCleanup удаляет тестовое объявление, если оно ещё существует.
+// DeleteAdvertisementForCleanup удаляет объявление, если оно ещё существует.
 func DeleteAdvertisementForCleanup(t *testing.T, token, id string) {
 	t.Helper()
 
@@ -83,5 +83,5 @@ func DeleteAdvertisementForCleanup(t *testing.T, token, id string) {
 	defer response.Body.Close()
 
 	require.Contains(t, []int{http.StatusNoContent, http.StatusNotFound}, response.StatusCode,
-		"Не удалось удалить тестовое объявление %s", id)
+		"Не удалось удалить объявление %s", id)
 }

@@ -12,7 +12,6 @@ import (
 // Negative: Проверяем запрет добавления собственного объявления в избранное.
 func (s *TestSuite) TestAddOwnAdvertisementToFavorites() {
 	s.prepareTestAdvertisement()
-
 	request := favoriteModels.AddFavoriteRequest{AdvertisementID: s.advertisementID}
 
 	var errorBody string

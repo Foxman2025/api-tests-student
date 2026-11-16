@@ -13,7 +13,6 @@ func (s *TestSuite) TestGetCreatedAdvertisementPhotos() {
 	advertisementID := s.fixture.advertisementResponse.ID
 	uploadedPhotos := s.fixture.advertisementResponse.Photos
 	require.Len(s.T(), uploadedPhotos, 1, "В ответе на создание должна быть одна фотография")
-
 	expectedPhotoID := uploadedPhotos[0].ID
 	require.NotEmpty(s.T(), expectedPhotoID, "ID загруженной фотографии пустой")
 

@@ -47,16 +47,3 @@ func readFavoritesResponse(t *testing.T, response *http.Response, expectedStatus
 
 	return string(body)
 }
-
-// DeleteFavoriteForCleanup удаляет запись избранного, если она ещё существует.
-func DeleteFavoriteForCleanup(t *testing.T, token, advertisementID string) {
-	t.Helper()
-
-	response := favorites.HttpDeleteFavorite(t, token, advertisementID)
-	if response.StatusCode == http.StatusNotFound {
-		require.NoError(t, response.Body.Close())
-		return
-	}
-
-	readFavoritesResponse(t, response, http.StatusNoContent)
-}

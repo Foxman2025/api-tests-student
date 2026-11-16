@@ -35,7 +35,6 @@ func (s *TestSuite) TestAddDuplicateFavorite() {
 	}) {
 		return
 	}
-
 	s.Run("Проверяем сообщение об ошибке", func() {
 		assertions.ErrorResponse(s.T(), errorBody, apierrors.CodeAlreadyExists, apierrors.MessageAlreadyInFavorites)
 	})

@@ -67,9 +67,7 @@ func (s *TestSuite) createAdvertisementFixture() advertisementFixture {
 	title := "Дом " + utils.RandomString(8)
 	request := s.newAdvertisementRequest(title)
 
-	advertisementBody := advertisements.CreateAdvertisement(
-		t, s.loginData.Token, http.StatusCreated, request,
-	)
+	advertisementBody := advertisements.CreateAdvertisement(t, s.loginData.Token, http.StatusCreated, request)
 
 	advertisementResponse := models.Advertisement{}
 	err := json.Unmarshal([]byte(advertisementBody), &advertisementResponse)
